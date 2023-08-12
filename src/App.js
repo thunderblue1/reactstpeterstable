@@ -68,12 +68,11 @@ const App = (props) => {
 
   return (
     <BrowserRouter>
-      <NavBar manageLoggedIn={managerLoggedIn}></NavBar>
+      <NavBar manageLoggedIn={managerLoggedIn} onSubmit={updateSearchResults}></NavBar>
       <Routes>
         <Route exact path="/" element={<About />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/shop" element={<Shop onSubmit={updateSearchResults} addToCart={addToMyCart} basket={renderedList} />} />
-        <Route exact path="/shop/:searchTerm" element={<Shop onSubmit={updateSearchResults} addToCart={addToMyCart} basket={renderedList}/>} />
         <Route exact path="/ShoppingCart" element={<ShoppingCart onSubmit={updateSearchResults} removeFromCart={removeFromMyCart} basket={myCart}/>} />
         <Route exact path="/login" element={<Login updateManage={updateManagerLoggedIn}/>} />
         <Route exact path="/register" element={<Register />} />

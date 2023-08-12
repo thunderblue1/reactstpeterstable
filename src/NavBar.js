@@ -2,8 +2,8 @@ import  {React, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const NavBar = (props) => {
-    const navigate = useNavigate;
     const [searchTerm, setSearchTerm] = useState('');
+    const navigate = useNavigate();
 
     let manage;
     if(props.manageLoggedIn) {
@@ -11,8 +11,10 @@ const NavBar = (props) => {
     } else {
         manage = null;
     }
-    const powerSearch = () => {
-        navigate('/shop'+this.searchTerm);
+    const powerSearch = (event) => {
+        event.preventDefault();
+        props.onSubmit(searchTerm);
+        navigate('/shop/');
     }
 
     const updateSearchTerm = (event) => {
@@ -41,9 +43,9 @@ const NavBar = (props) => {
             </li>
             {manage}
             </ul>
-            <form className="d-flex" onSubmit={powerSearch}>
+            <form className="d-flex">
                 <input className="form-control me-2" type="search" placeholder="Search Shop" aria-label="Search" name="search" value={searchTerm}  onChange={updateSearchTerm}/>
-                <button className="btn btn-outline-success">Search</button>
+                <button className="btn btn-outline-success" onClick={powerSearch}>Search</button>
             </form>
         </div>
         </div>
