@@ -1,0 +1,7 @@
+.manage {
+    background: url(../public/assets/img/clouds.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    overflow: auto;
+}
