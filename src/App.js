@@ -5,7 +5,7 @@ import Shop from './Shop';
 import Login from './Login';
 import Register from './Register';
 import Manage from './Manage';
-import {Link, BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import dataSource from './dataSource'
 import { useEffect, useState } from 'react';
 import ShoppingCart from './ShoppingCart';
@@ -49,18 +49,6 @@ const App = (props) => {
   }
 
   const renderedList = bibles.filter((bible) => {
-    if(
-      bible.description.toLowerCase().includes(searchPhrase.toLowerCase())||searchPhrase ===''
-      ||bible.name.toLowerCase().includes(searchPhrase.toLowerCase())
-      ||bible.version.toLowerCase().includes(searchPhrase.toLowerCase())
-      ||(bible.price/100).toString().toLowerCase().includes(searchPhrase.toLowerCase())
-    ) {
-      return true;
-    }
-    return false;
-  });
-
-  const renderedCart = myCart.filter((bible) => {
     if(
       bible.description.toLowerCase().includes(searchPhrase.toLowerCase())||searchPhrase ===''
       ||bible.name.toLowerCase().includes(searchPhrase.toLowerCase())

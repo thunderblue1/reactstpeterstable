@@ -1,7 +1,6 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import './Shop.css';
 import './Styles.css'
-import dataSource from './dataSource';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';

@@ -9,18 +9,8 @@ import Modal from 'react-bootstrap/Modal';
 const ShoppingCart = (props) => {
 
     const [turnedOn, setTurnedOn] = useState("");
-    const [inputText, setInputText] = useState("");
     const [chosenCards,setChosenCards] = useState("");
 
-    const handleCartInput = (event) => {
-      setInputText(event.target.value);
-      console.log(inputText);
-    };
-  
-    const handleCartSubmit = (event) => {
-      event.preventDefault();
-      props.onSubmit(inputText);
-    };
     const handleClose = () => setTurnedOn('closed');
     const handleShow = (id) => {
         setTurnedOn(id);
@@ -89,17 +79,7 @@ const ShoppingCart = (props) => {
                 <Link className="btn btn-primary w-100" to="/shop">
                     Go Back to Shop
                 </Link>
-                <form onSubmit={handleCartSubmit}>
-                    <div className='form-group'>
-                    <label htmlFor='search-term'>Search for</label>
-                    <input
-                        type='text'
-                        className='form-control'
-                        placeholder='Enter search term here'
-                        onChange={handleCartInput}
-                    />
-                    </div>
-                </form>
+
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3  mt-2">
                     {chosenCards}
                 </div>
